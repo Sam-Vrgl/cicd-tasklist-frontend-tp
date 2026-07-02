@@ -67,13 +67,13 @@ pipeline {
 
         stage('Trivy Scan') {
             steps {
-                sh "trivy image --exit-code 0 --severity HIGH,CRITICAL --format table ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "trivy image --cache-dir ${WORKSPACE}/.trivycache --exit-code 0 --severity HIGH,CRITICAL --format table ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
 
         stage('SBOM Generation') {
             steps {
-                sh "trivy image --format spdx-json --output sbom-spdx.json ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "trivy image --cache-dir ${WORKSPACE}/.trivycache --format spdx-json --output sbom-spdx.json ${IMAGE_NAME}:${IMAGE_TAG}"
             }
             post {
                 always {
