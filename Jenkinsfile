@@ -39,7 +39,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(installationName: 'sonarqube-server-1', credentialsId: 'samuelv-sonarqube-credentials') {
+                withSonarQubeEnv(installationName: 'sonarqube-server-2', credentialsId: 'samuelv-sonarqube-credentials') {
                     sh 'npx sonar-scanner'
                 }
             }
