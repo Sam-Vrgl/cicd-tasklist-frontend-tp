@@ -39,3 +39,6 @@ junit*.xml
 *.tsbuildinfo
 
 .scannerwork/
+
+# Notes locales de setup (Jenkins/SonarQube/DockerHub), non versionnées
+info.md
