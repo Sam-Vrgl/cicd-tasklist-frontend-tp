@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('samuelv-dockerhub-credentials')
-        IMAGE_NAME = 'samvrgl/tasklist-frontend'
+        IMAGE_NAME = 'samvrgl/cicd-tasklist-frontend'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
 
