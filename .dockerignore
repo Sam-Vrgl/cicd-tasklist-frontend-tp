@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+coverage
+reports
+.git
+.scannerwork
+*.log
+Dockerfile
+.dockerignore
+info.md
