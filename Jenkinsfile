@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
+        DOCKERHUB_CREDENTIALS = credentials('samuelv-dockerhub-credentials')
         IMAGE_NAME = 'sam-vrgl/tasklist-frontend'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
@@ -39,7 +39,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('sonarqube-server-1') {
                     sh 'npx sonar-scanner'
                 }
             }
